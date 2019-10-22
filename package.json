@@ -1,0 +1,25 @@
+{
+  "name": "ts-rest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./dist/app.js",
+    "dev": "nodemon ./src/app.ts",
+    "serve": "tsc -p . && node ./dist/app.js",
+    "tsc": "tsc",
+    "build": "tsc -p ."
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/node": "^12.11.1",
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
+  }
+}
