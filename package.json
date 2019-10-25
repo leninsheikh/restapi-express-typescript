@@ -7,17 +7,25 @@
     "start": "node ./dist/app.js",
     "dev": "nodemon ./src/app.ts",
     "serve": "tsc -p . && node ./dist/app.js",
-    "tsc": "tsc",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "sq": "tsc -p . && node_modules/.bin/sequelize"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "module-alias": "^2.2.2"
+    "module-alias": "^2.2.2",
+    "mysql2": "^1.7.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "sequelize": "^5.21.1",
+    "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.5.28",
     "@types/express": "^4.17.1",
     "@types/node": "^12.11.1",
+    "@types/validator": "^10.11.3",
     "nodemon": "^1.19.4",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4"

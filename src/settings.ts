@@ -12,8 +12,6 @@ require('dotenv').config();
  */
 const src = path.dirname(process.mainModule!.filename)
 
-
-
 /**
  * registering module aliases
  */
