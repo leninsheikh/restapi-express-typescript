@@ -1,11 +1,12 @@
-import { body } from "express-validator";
+import { body, ValidationChain } from "express-validator";
 import customValidators from '@src/http/validators/custom.validator';
 
 /**
  * validation rules for user register
+ * @var registerRequest
  * @type {ValidationChain[]}
  */
-const registerRequest = [
+const registerRequest: ValidationChain[] = [
     body('email')
         .isEmail().withMessage('this not a valid email address')
         .custom(customValidators.isUniqueEmail),
@@ -17,9 +18,10 @@ const registerRequest = [
 
 /**
  * validation rule for user login
+ * @var loginRequest
  * @type {ValidationChain[]}
  */
-const loginRequest = [
+const loginRequest: ValidationChain[] = [
     body('email', 'this not a valid email address').isEmail(),
     body('password', 'password filed can not be empty').not().isEmpty()
 ];
