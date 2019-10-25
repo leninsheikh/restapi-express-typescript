@@ -1,6 +1,6 @@
 import validator from '@src/http/validators/validator';
 import { body } from 'express-validator';
-import customValidators from '@src/http/validators/custom.validator'
+import customValidators from '@src/http/validators/customRules'
 
 /**
  * validation rule for user register
