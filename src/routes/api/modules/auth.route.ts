@@ -1,11 +1,13 @@
 import { Router } from 'express';
 import passport from 'passport'
-import authController from '@src/http/controllers/api/auth/auth.controller';
+import authController from '@controllers/api/auth/auth.controller';
+import LoginValidator from '@validators/auth/login.validator';
+import RegisterValidator from '@validators/auth/register.validator';
 
 const router = Router();
 
-router.post('/login',  authController.login);
-router.post('/register', authController.register);
+router.post('/login', LoginValidator,  authController.login);
+router.post('/register', RegisterValidator, authController.register);
 
 /**
  * added passport middleware

@@ -16,5 +16,7 @@ const src = path.dirname(process.mainModule!.filename)
  * registering module aliases
  */
 md.addAliases({
-    '@src'  : src
+    '@src' : src,
+    '@validators': `${src}/http/validators/modules`,
+    '@controllers': `${src}/http/controllers`
   })
