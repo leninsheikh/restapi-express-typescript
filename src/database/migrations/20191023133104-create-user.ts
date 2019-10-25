@@ -20,6 +20,9 @@ export default {
         type: Sequelize.STRING,
         allowNull: false
       },
+      password: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: true,
         type: Sequelize.DATE

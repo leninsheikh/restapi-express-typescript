@@ -1,8 +1,11 @@
-import './settings';
 import Express, { Application, Request, Response } from 'express';
+import BodyParser from 'body-parser';
+
+import './settings';
+import '@src/services/passport.service';
 import { loggerMiddleware } from '@src/middlewares/func';
 import demo from '@src/deep/demo';
-import User from '@src/database/models/user';
+import routes from '@src/routes'
 
 
 /**
@@ -15,21 +18,16 @@ demo.appName();
  */
 const app: Application = Express();
 
+/**
+ * registering body-parser
+ */
+app.use(BodyParser.urlencoded({extended: false}));
+
 
 /**
  * adding logger middleware
  */
 app.use(loggerMiddleware);
-
-User.create({
-    'firstName': 'Ursa',
-    'email': 'u@u.uu',
-    "lastName": "last"
-}).then((user: User) => {
-    console.log(user.lastName);
-}).catch( (e: Error) => {
-    console.log(e.message)
-})
 
 /**
  * routes
@@ -38,7 +36,10 @@ app.get('/', (req: Request, res: Response) => {
     res.send("haha");
 })
 
-
+/**
+ * registering routes
+ */
+app.use(routes);
 
 
 /**

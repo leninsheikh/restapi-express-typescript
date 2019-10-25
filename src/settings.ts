@@ -7,7 +7,7 @@ const md = require('module-alias');
 require('dotenv').config();
 
 /**
- * applications source
+ * applications sourcePath
  * @var src
  */
 const src = path.dirname(process.mainModule!.filename)
