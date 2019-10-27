@@ -2,12 +2,17 @@ import jwt from 'jsonwebtoken';
 import User from '@src/database/models/user';
 import bcrypt from 'bcrypt'; 
 import { Request, Response } from 'express';
+import UserRepository from '@src/database/repositories/user/user.repository';
+
+
+const repo = new UserRepository();
 
 export default {
     /**
      * login user
-     * @param req
-     * @param res
+     * @method login
+     * @param {Request} req
+     * @param {Response} res
      * @returns {Promise<*|createServer.NextHandleFunction|Json|Response|Promise<any>|*>}
      */
     async login(req: Request, res: Response) {
@@ -33,6 +38,7 @@ export default {
     },
     /**
      * user registration
+     * @method register
      * @param {Request} req 
      * @param {Response} res
      * @returns {Promise<User> | JSON | Response}
@@ -40,9 +46,7 @@ export default {
     async register(req: Request, res: Response) {
         console.log('i m register')
         try {
-            let user = await User.build(req.body);
-            user.password = await bcrypt.hash(req.body.password, 10);
-            await user.save();
+            let user = await repo.save(req.body);
             res.json(user);
         } catch (e) {
             console.log(e);
