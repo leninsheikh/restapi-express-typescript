@@ -4,14 +4,9 @@ import BodyParser from 'body-parser';
 import './settings';
 import '@src/services/passport.service';
 import { loggerMiddleware } from '@src/middlewares/func';
-import demo from '@src/deep/demo';
-import routes from '@src/routes'
+import routes from '@src/routes';
 
 
-/**
- * logging Application name
- */
-demo.appName();
 
 /**
  * initializing Express application

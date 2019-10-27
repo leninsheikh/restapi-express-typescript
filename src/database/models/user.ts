@@ -6,7 +6,7 @@ interface User extends Model {
   readonly id: number;
   firstName: string;
   lastName: string;
-  email: string;
+  email: string
   password: string;
 }
 
